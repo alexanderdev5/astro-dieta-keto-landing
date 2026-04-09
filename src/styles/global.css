@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  /* Colores para Landing */
+  --color-cta-orange: #f97316; /* orange-500 */
+  --color-cta-orange-hover: #fb923c; /* orange-400 */
+  --color-cta-green: #10b981; /* emerald-500 */
+  --color-cta-green-hover: #34d399; /* emerald-400 */
+}
+
+body {
+  font-family: var(--font-montserrat);
+}
+
+h1, h2, h3, h4, h5, h6, .font-poppins {
+  font-family: var(--font-poppins);
+}

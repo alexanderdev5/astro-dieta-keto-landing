@@ -12,14 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^10.0.4",
     "@astrojs/react": "^5.0.3",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "resend": "^6.10.0",
+    "stripe": "^22.0.1",
     "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6",
+    "zustand": "^5.0.12"
   }
 }

@@ -52,5 +52,52 @@ const {
 </head>
 <body class="bg-[#050A15] text-slate-50 antialiased selection:bg-orange-500 selection:text-white">
   <slot />
+
+  <style is:global>
+    /* Premium Vanilla CSS Animations */
+    .reveal-scroll {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    
+    .reveal-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    
+    /* Staggered effects for children */
+    .reveal-stagger-1 { transition-delay: 100ms; }
+    .reveal-stagger-2 { transition-delay: 200ms; }
+    .reveal-stagger-3 { transition-delay: 300ms; }
+  </style>
+
+  <script>
+    // Lightweight Intersection Observer (Zero dependencies, <1kb)
+    const initObserver = () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Reveal only once for performance
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.reveal-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    };
+
+    // Run on initial load
+    initObserver();
+    // Re-run safely if using Astro ViewTransitions
+    document.addEventListener('astro:page-load', initObserver);
+  </script>
 </body>
 </html>

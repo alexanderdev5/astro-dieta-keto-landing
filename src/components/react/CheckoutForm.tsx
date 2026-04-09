@@ -19,7 +19,7 @@ export const CheckoutForm: React.FC = () => {
       
       <div className="text-center mb-8 relative z-10">
         <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">Comienza tu viaje Keto</h3>
-        <p className="text-slate-500 mt-2 text-sm">Reserva tu plan premium ahora</p>
+        <p className="text-slate-600 mt-2 text-sm font-medium">Reserva tu plan premium ahora</p>
       </div>
 
       <div className="space-y-5 relative z-10">
@@ -72,8 +72,8 @@ export const CheckoutForm: React.FC = () => {
         </button>
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-2 text-slate-500 text-xs font-medium">
-        <ShieldCheck className="w-4 h-4 text-emerald-500" />
+      <div className="mt-8 flex items-center justify-center gap-2 text-slate-600 text-xs font-bold">
+        <ShieldCheck className="w-4 h-4 text-emerald-600" />
         <span>Pago seguro cifrado a nivel bancario</span>
       </div>
     </form>

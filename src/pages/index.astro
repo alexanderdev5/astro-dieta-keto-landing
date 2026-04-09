@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { CtaStripeButton } from '../components/CtaStripeButton';
 import { CountdownTimer } from '../components/react/CountdownTimer';
+import { TopHeaderTimer } from '../components/react/TopHeaderTimer';
 import { Target, Zap, Brain, ChevronRight, CheckCircle2, Star, Quote, HelpCircle, ShieldCheck, Gift, Play } from 'lucide-react';
 import { PRODUCT_CONFIG } from '../config/product';
 
@@ -26,15 +27,13 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
   <main class="relative bg-[#050A15] selection:bg-orange-400 pt-16 overflow-hidden">
     
     <!-- HEADER DE URGENCIA -->
-    <div class="absolute top-0 w-full bg-gradient-to-r from-orange-600 to-orange-500 text-white py-4 text-center text-xs md:text-sm font-bold tracking-widest uppercase z-40 px-6 shadow-md">
-      <Zap className="inline-block w-4 h-4 mr-2 -mt-1" /> ¡Sólo quedan 14 cupos con 70% de descuento!
-    </div>
+    <TopHeaderTimer client:load />
 
     <!-- Background Ambient Glows -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-orange-500/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
     <!-- HERO: Beneficio + Tiempo - Esfuerzo -->
-    <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 px-6 sm:px-10 lg:px-12 max-w-[1400px] mx-auto z-10 border-b border-white/5">
+    <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 px-4 sm:px-10 lg:px-12 max-w-[1400px] mx-auto z-10 border-b border-white/5">
       <div class="lg:grid lg:grid-cols-12 lg:gap-20 items-center relative z-10">
         <div class="lg:col-span-6 text-center lg:text-left z-10 relative mb-16 lg:mb-0">
           <h1 class="font-poppins text-[2.5rem] leading-[1.1] sm:text-6xl md:text-[4.5rem] font-extrabold text-white tracking-tighter mb-8 drop-shadow-2xl">
@@ -108,7 +107,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- AGITACIÓN: El Problema -->
-    <section class="py-24 sm:py-32 bg-[#0A101E] px-6 sm:px-10 lg:px-12 relative overflow-hidden border-y border-white/5">
+    <section class="py-24 sm:py-32 bg-[#0A101E] px-4 sm:px-10 lg:px-12 relative overflow-hidden border-y border-white/5">
       <div class="absolute top-1/2 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-[150px] pointer-events-none"></div>
       
       <div class="max-w-[1400px] mx-auto relative z-10 lg:grid lg:grid-cols-2 lg:gap-20 items-center">
@@ -145,7 +144,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- SOLUCIÓN: El Mecanismo Único -->
-    <section class="py-32 sm:py-40 bg-[#050A15] px-6 sm:px-10 lg:px-12 relative">
+    <section class="py-32 sm:py-40 bg-[#050A15] px-4 sm:px-10 lg:px-12 relative">
       <div class="max-w-7xl mx-auto">
         <div class="md:grid md:grid-cols-2 md:gap-12 lg:gap-24 items-center">
           <div class="relative mb-20 md:mb-0 group mx-auto max-w-lg md:max-w-none w-full order-1 md:order-2">
@@ -192,9 +191,9 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
                 { title: 'Energía Explosiva 24/7', desc: 'Despídete de la fatiga de la tarde. Tu cerebro y cuerpo amarán las cetonas.', icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/30 shadow-emerald-500/20' },
                 { title: 'Blindaje contra el Rebote', desc: 'Aceleramos tu metabolismo para resultados duraderos e irreversibles.', icon: ShieldCheck, color: 'text-cyan-400', bg: 'bg-cyan-500/10 border-cyan-500/30 shadow-cyan-500/20' }
               ].map((item) => (
-                <li class="flex gap-6 group items-start p-6 rounded-[2rem] bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 shadow-xl">
-                  <div class={`flex-shrink-0 ${item.bg} p-5 rounded-[1.5rem] border backdrop-blur-md shadow-lg group-hover:-translate-y-2 transition-transform duration-300`}>
-                    <item.icon className={`w-8 h-8 ${item.color}`} />
+                <li class="flex gap-4 sm:gap-6 group items-start p-5 sm:p-6 rounded-3xl sm:rounded-[2rem] bg-white/5 hover:bg-white/10 border border-transparent hover:border-white/10 transition-all duration-300 shadow-xl">
+                  <div class={`flex-shrink-0 ${item.bg} p-4 sm:p-5 rounded-2xl sm:rounded-[1.5rem] border backdrop-blur-md shadow-lg group-hover:-translate-y-2 transition-transform duration-300`}>
+                    <item.icon className={`w-7 h-7 sm:w-8 sm:h-8 ${item.color}`} />
                   </div>
                   <div class="pt-1">
                     <h3 class="font-poppins font-bold text-white text-2xl mb-3">{item.title}</h3>
@@ -212,12 +211,12 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- PRUEBA SOCIAL: Testimonios Ultra-Optimizados -->
-    <section class="py-32 sm:py-40 bg-[#0A101E] px-6 sm:px-10 lg:px-12 border-y border-white/5 relative z-10 shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]">
+    <section class="py-32 sm:py-40 bg-[#0A101E] px-4 sm:px-10 lg:px-12 border-y border-white/5 relative z-10 shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]">
       <div class="max-w-[1400px] mx-auto">
         <h2 class="font-poppins text-center text-4xl md:text-5xl lg:text-6xl font-black mb-16 text-white drop-shadow-lg leading-tight">Resultados Increíbles de Personas Reales</h2>
         
         <!-- TRANSFORMACIÓN ESTRELLA (CASO DE ÉXITO GRANDE) -->
-        <div class="mb-20 bg-white/5 rounded-[3rem] p-8 sm:p-12 border border-white/10 flex flex-col lg:flex-row gap-12 items-center hover:bg-white/10 transition-colors relative z-20">
+        <div class="mb-20 bg-white/5 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-12 border border-white/10 flex flex-col lg:flex-row gap-12 items-center hover:bg-white/10 transition-colors relative z-20">
           <div class="lg:w-1/2 relative group w-full">
             <div class="absolute inset-0 bg-emerald-500/20 blur-2xl rounded-[2rem] pointer-events-none group-hover:bg-emerald-500/30 transition-all"></div>
             <!-- Foto de transformación / persona feliz en forma -->
@@ -240,7 +239,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
              { name: 'Carlos R.', role: 'Ingeniero', subtitle: 'SIN ESTANCAMIENTOS', img: 'photo-1500648767791-00dcc994a43e', text: 'He probado todas las dietas existentes. Esta es la única que pude seguir con la oficina. El recetario es oro puro, honestamente como mucho mejor que antes.', rating: 5 },
              { name: 'Elena P.', role: 'Emprendedora', subtitle: 'ADIÓS FATIGA', img: 'photo-1544005313-94ddf0286df2', text: 'Al fin entiendo mi cuerpo. Llevo 12 kilos menos y ya no siento esa necesidad ansiosa de comer dulces a las 4 PM. Esto es una actualización de software para mi cuerpo.', rating: 5 }
           ].map((testi) => (
-            <div class="bg-[#050A15]/90 backdrop-blur-xl p-10 sm:p-12 rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/10 relative group hover:-translate-y-3 transition-transform duration-500 pt-20">
+            <div class="bg-[#050A15]/90 backdrop-blur-xl px-6 py-8 pt-16 sm:p-12 sm:pt-20 rounded-[2rem] sm:rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/10 relative group hover:-translate-y-3 transition-transform duration-500">
               <div class="absolute -top-14 left-1/2 -translate-x-1/2">
                 <!-- Fetching real images thanks to DF... cloudname -->
                 <img src={getImg(testi.img, 180, '1:1')} loading="lazy" alt={`Testimonio de ${testi.name}`} class="w-28 h-28 rounded-full border-[8px] border-[#0A101E] shadow-2xl object-cover" />
@@ -261,11 +260,11 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- OFERTA IRRESISTIBLE -->
-    <section class="py-32 sm:py-48 bg-[#050A15] px-6 relative flex justify-center border-y border-white/5">
+    <section class="py-32 sm:py-48 bg-[#050A15] px-4 sm:px-6 relative flex justify-center border-y border-white/5">
       <!-- Glow ambient behind pricing -->
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[600px] bg-emerald-600/10 rounded-full blur-[200px] pointer-events-none"></div>
 
-      <div class="max-w-[1400px] w-full bg-[#0A101E]/90 backdrop-blur-2xl rounded-[3rem] sm:rounded-[4rem] p-8 sm:p-16 lg:p-20 text-white overflow-hidden relative shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-white/10 reveal-scroll">
+      <div class="max-w-[1400px] w-full bg-[#0A101E]/90 backdrop-blur-2xl rounded-[2.5rem] sm:rounded-[4rem] px-5 py-10 sm:p-16 lg:p-20 text-white overflow-hidden relative shadow-[0_40px_100px_rgba(0,0,0,0.8)] border border-white/10 reveal-scroll">
         <div class="relative z-10 lg:grid lg:grid-cols-12 gap-20 items-center">
            <div class="lg:col-span-7">
              <div class="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white font-black px-6 py-2.5 rounded-full text-xs sm:text-sm uppercase tracking-[0.2em] mb-10 shadow-[0_0_20px_rgba(249,115,22,0.4)] border border-orange-300/30">
@@ -306,8 +305,8 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
            </div>
 
            <div class="lg:col-span-5 relative mt-16 lg:mt-0">
-              <div class="bg-gradient-to-br from-emerald-400 to-emerald-600 p-[3px] rounded-[3rem] shadow-[0_0_80px_rgba(16,185,129,0.3)] relative z-20">
-                 <div class="bg-[#050A15] rounded-[3rem] p-10 sm:p-14 text-center pb-16 text-white border border-transparent hover:border-emerald-500/30 transition-all">
+              <div class="bg-gradient-to-br from-emerald-400 to-emerald-600 p-[3px] rounded-[2.5rem] sm:rounded-[3rem] shadow-[0_0_80px_rgba(16,185,129,0.3)] relative z-20">
+                 <div class="bg-[#050A15] rounded-[2.5rem] sm:rounded-[3rem] px-5 py-8 sm:p-14 text-center sm:pb-16 text-white border border-transparent hover:border-emerald-500/30 transition-all">
                    <p class="text-xl text-slate-300 mb-4 font-bold uppercase tracking-widest">Valor Total: <span class="line-through decoration-red-500/80 decoration-[3px] text-white/70">S/ 397</span></p>
                    <p class="font-poppins text-8xl lg:text-[7rem] font-black text-emerald-400 mb-6 drop-shadow-[0_0_30px_rgba(16,185,129,0.4)] leading-none">S/ {PRODUCT_CONFIG.priceInSoles}</p>
                    <p class="text-base font-bold tracking-[0.2em] uppercase text-slate-300 font-sans mb-10">Pago Único • Accesos Inmediato</p>
@@ -323,11 +322,11 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- CHECKOUT & URGENCIA -->
-    <section id="checkout" class="py-32 bg-[#0A101E] px-6 sm:px-10 lg:px-12 shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative border-b border-white/5 reveal-scroll">
+    <section id="checkout" class="py-32 bg-[#0A101E] px-4 sm:px-10 lg:px-12 shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden relative border-b border-white/5 reveal-scroll">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20 relative z-10">
         <div class="lg:w-1/2">
           <h2 class="font-poppins text-4xl sm:text-5xl md:text-6xl font-black text-white mb-10 leading-[1.15] drop-shadow-lg">Último paso para revolucionar tu vida.</h2>
-          <div class="bg-emerald-500/10 p-10 rounded-[2.5rem] border border-emerald-500/30 flex flex-col sm:flex-row gap-8 items-start mb-12 backdrop-blur-md shadow-2xl">
+          <div class="bg-emerald-500/10 p-6 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] border border-emerald-500/30 flex flex-col sm:flex-row gap-6 sm:gap-8 items-start mb-12 backdrop-blur-md shadow-2xl">
             <div class="bg-emerald-500/20 p-4 rounded-2xl">
                <ShieldCheck className="w-12 h-12 text-emerald-400 flex-shrink-0 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]" />
             </div>
@@ -347,7 +346,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
           <div class="absolute inset-0 bg-orange-500/20 rounded-[3rem] blur-[150px] -z-10 pointer-events-none"></div>
           <div class="w-full sm:max-w-xl mx-auto">
              <CtaStripeButton client:visible text="RECLAMAR MI ACCESO INSTANTÁNEO" className="w-full" />
-             <div class="mt-10 p-8 rounded-3xl bg-white/5 border border-white/10 text-center">
+             <div class="mt-10 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 text-center">
                 <p class="text-slate-400 font-medium italic">"Me encantó que no tuve que llenar formularios largos. El pago fue seguro y recibí mi ebook al instante."</p>
                 <p class="text-white font-bold mt-4">— Juan S., Nuevo Usuario Keto</p>
              </div>
@@ -357,7 +356,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
     </section>
 
     <!-- FAQ -->
-    <section class="py-32 sm:py-40 bg-[#050A15] px-6 sm:px-10 lg:px-12">
+    <section class="py-32 sm:py-40 bg-[#050A15] px-4 sm:px-10 lg:px-12">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-poppins text-3xl sm:text-5xl md:text-6xl font-black text-center mb-20 flex flex-col sm:flex-row items-center justify-center gap-6 text-white drop-shadow-xl">
           <HelpCircle className="text-orange-500 w-16 h-16 shadow-[0_0_30px_rgba(249,115,22,0.3)] rounded-full" /> Resolvemos tus Dudas
@@ -368,7 +367,7 @@ const heroImg = 'photo-1490645935967-10de6ba17061';
              { q: '¿Es más caro comprar alimentos Keto?', a: 'Contrario a lo que se cree, ahorrarás dinero. Al eliminar snacks procesados, chatarra y bebidas, el presupuesto mensual se reduce. Inviertes en comida real y de alta octanaje.' },
              { q: '¿Qué pasa si tengo una evento o cena con amigos?', a: 'Te incluimos gratis la guía "Hackeando Restaurantes". Aprenderás a elegir las mejores opciones en cualquier menú sin salir de tu estado quema-grasa.' }
            ].map((faq) => (
-             <div class="border border-white/10 bg-[#0A101E] rounded-[2rem] p-10 sm:p-12 hover:border-orange-500/40 hover:shadow-[0_0_40px_rgba(249,115,22,0.15)] transition-all duration-300 group">
+             <div class="border border-white/10 bg-[#0A101E] rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-12 hover:border-orange-500/40 hover:shadow-[0_0_40px_rgba(249,115,22,0.15)] transition-all duration-300 group">
                <h3 class="font-poppins text-2xl sm:text-3xl font-black text-white mb-5 group-hover:text-orange-400 transition-colors">{faq.q}</h3>
                <p class="text-slate-400 text-lg sm:text-xl leading-relaxed font-normal">{faq.a}</p>
              </div>

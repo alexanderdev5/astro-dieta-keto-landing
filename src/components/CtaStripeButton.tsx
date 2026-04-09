@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Loader2, ShoppingCart } from 'lucide-react';
 
@@ -12,6 +12,30 @@ export const CtaStripeButton: React.FC<Props> = ({
   text = "¡COMPRAR EBOOK AHORA!" 
 }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  // Fix para el bfcache (Back-Forward cache): Restaura el botón al usar navegador 'Atrás'
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        setIsLoading(false);
+      }
+    };
+    
+    // Fallback de seguridad para navegadores móviles
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        setIsLoading(false);
+      }
+    };
+
+    window.addEventListener('pageshow', handlePageShow);
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      window.removeEventListener('pageshow', handlePageShow);
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, []);
 
   const handleCheckout = async () => {
     setIsLoading(true);
@@ -57,7 +81,7 @@ export const CtaStripeButton: React.FC<Props> = ({
         whileTap={{ scale: 0.95 }}
         disabled={isLoading}
         onClick={handleCheckout}
-        className="relative w-full px-8 py-5 bg-gradient-to-b from-green-500 to-emerald-700 text-white rounded-xl font-black text-lg md:text-xl flex items-center justify-center gap-3 border-2 border-green-300/50 overflow-hidden shadow-[0_0_40px_rgba(34,197,94,0.6)] disabled:opacity-70 disabled:cursor-not-allowed group-hover:shadow-[0_0_60px_rgba(250,204,21,0.6)] transition-shadow duration-300"
+        className="relative w-full px-4 py-4 md:px-8 md:py-5 bg-gradient-to-b from-green-500 to-emerald-700 text-white rounded-xl font-black text-base md:text-xl flex items-center justify-center gap-2 md:gap-3 border-2 border-green-300/50 overflow-hidden shadow-[0_0_40px_rgba(34,197,94,0.6)] disabled:opacity-70 disabled:cursor-not-allowed group-hover:shadow-[0_0_60px_rgba(250,204,21,0.6)] transition-shadow duration-300"
       >
         {isLoading ? (
           <>
